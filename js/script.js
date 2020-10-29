@@ -39,26 +39,30 @@ window.addEventListener('DOMContentLoaded', function() {
 
 
     //TIMER
-    let deadLine = '2019-12-15';
+    let deadLine = '2020-10-30';
 
     function getTimeRemaining(endtime) {
         let t = Date.parse(endtime) - Date.parse(new Date()),
             seconds = Math.floor((t/1000) % 60),
             minutes = Math.floor((t/1000/60) % 60),
-            hours = Math.floor((t/(1000*60*60)));
+            hours = Math.floor((t/(1000*60*60)) % 24),
+            days = Math.floor((t/1000/60/60/24));
 
             return {
                 'total' : t,
                 'hours' : hours,
                 'minutes' : minutes,
-                'seconds' : seconds
+                'seconds' : seconds,
+                'days' : days
             };
     }
+    
 
 
     
     function setClock(id, endtime) {
         let timer = document.getElementById(id),
+            days = timer.querySelector('.days'),
             hours = timer.querySelector('.hours'),
             minutes = timer.querySelector('.minutes'),
             seconds = timer.querySelector('.seconds'),
@@ -72,7 +76,8 @@ window.addEventListener('DOMContentLoaded', function() {
                             return '0' + num;
                         } else return num;
                     };
-
+                    
+            days.textContent = addZero(t.days) + ' дней ';
             hours.textContent = addZero(t.hours);
             minutes.textContent = addZero(t.minutes);
             seconds.textContent = addZero(t.seconds);
