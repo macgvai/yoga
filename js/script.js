@@ -45,8 +45,8 @@ window.addEventListener('DOMContentLoaded', function() {
         let t = Date.parse(endtime) - Date.parse(new Date()),
             seconds = Math.floor((t/1000) % 60),
             minutes = Math.floor((t/1000/60) % 60),
-            hours = Math.floor((t/(1000*60*60)) % 24),
-            days = Math.floor((t/1000/60/60/24));
+            hours = Math.floor((t/(1000 * 60 * 60)) % 24),
+            days = Math.floor((t/(1000 * 60 * 60 * 24)));
 
             return {
                 'total' : t,
@@ -56,7 +56,8 @@ window.addEventListener('DOMContentLoaded', function() {
                 'days' : days
             };
     }
-    
+    console.log(new Date());
+    console.log(deadLine);
 
 
     
