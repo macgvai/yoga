@@ -1,3 +1,8 @@
+require('es6-promise/auto');
+require('nodelist-foreach-polyfill');
+require('formdata-polyfill');
+
+
 window.addEventListener('DOMContentLoaded', function() {
 
     'use strict';
@@ -7,8 +12,8 @@ window.addEventListener('DOMContentLoaded', function() {
         slider = require('./parts/slider'),
         tabs = require('./parts/tabs'),
         timer = require('./parts/timer');
-
-
+ 
+ 
     calc();
     form();
     modal();
